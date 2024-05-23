@@ -22,11 +22,11 @@ This project contains the necessary files to deploy MediaWiki on a Kubernetes cl
 3. Create the required Kubernetes resources:
 
 ```bash
-kubectl apply -f pv.yaml
-kubectl apply -f pvc.yaml
-kubectl apply -f storageclass.yaml
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
+kubectl apply -f pv.yml
+kubectl apply -f pvc.yml
+kubectl apply -f storageclass.yml
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
 ```
 
 
