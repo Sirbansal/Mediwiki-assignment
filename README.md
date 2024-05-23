@@ -1,59 +1,66 @@
-MediaWiki Kubernetes Deployment
-This project contains the necessary files to deploy MediaWiki on a Kubernetes cluster using custom Dockerfiles for the application and database. The project includes a Dockerfile, Kubernetes configuration files, and a README file.
 
-Prerequisites
-A running Kubernetes cluster
-kubectl configured to interact with the cluster
-Deployment Steps
-Build the Docker image:
+# MediaWiki Deployment
 
-bash
-Edit
-Run
-Full Screen
-Copy code
-docker build -t mediawiki:latest .
-Push the Docker image to a container registry accessible by your Kubernetes cluster.
+This project contains the necessary files to deploy MediaWiki on a Kubernetes cluster using custom Dockerfiles for the application and database. The project includes a Terraform files, Dockerfile, Kubernetes configuration files, and a README file.
 
-Create the required Kubernetes resources:
 
-bash
-Edit
-Run
-Full Screen
-Copy code
+## Prerequisites
+
+1. Creating Kubernetes cluster by the help of terraform.
+2. `kubectl` configured to interact with the cluster
+
+## Deployment
+
+1. Build the Docker image:
+
+```bash
+  docker build -t mediawiki:latest .
+```
+
+2. Push the Docker image to a container registry accessible by your Kubernetes cluster.
+
+3. Create the required Kubernetes resources:
+
+```bash
 kubectl apply -f mediawiki-pv.yaml
 kubectl apply -f mediawiki-pvc.yaml
 kubectl apply -f mediawiki-storageclass.yaml
 kubectl apply -f mediawiki-deployment.yaml
 kubectl apply -f mediawiki-service.yaml
-Access the MediaWiki application using the LoadBalancer IP and port 80 or 443.
+```
 
-Configuration
+
+## Configuration
 The following configuration files are included in this project:
 
-Dockerfile: The Dockerfile used to build the MediaWiki Docker image.
-mediawiki-pv.yaml: The PersistentVolume configuration for storing MediaWiki data.
-mediawiki-pvc.yaml: The PersistentVolumeClaim configuration for requesting storage for MediaWiki.
-mediawiki-storageclass.yaml: The StorageClass configuration for using local storage.
-mediawiki-deployment.yaml: The Deployment configuration for running the MediaWiki application.
-mediawiki-service.yaml: The Service configuration for exposing the MediaWiki application.
-Updating MediaWiki
+1. Dockerfile: The Dockerfile used to build the MediaWiki Docker image.
+2. mediawiki-pv.yaml: The PersistentVolume configuration for storing MediaWiki data.
+3. mediawiki-pvc.yaml: The PersistentVolumeClaim configuration for requesting storage for MediaWiki.
+4. mediawiki-storageclass.yaml: The StorageClass configuration for using local storage.
+5. mediawiki-deployment.yaml: The Deployment configuration for running the MediaWiki application.
+6. mediawiki-service.yaml: The Service configuration for exposing the MediaWiki application.
+## Updating MediaWiki
+
 To update MediaWiki, follow these steps:
 
-Update the MediaWiki version in the Dockerfile.
+1. Update the MediaWiki version in the Dockerfile.
 
-Rebuild the Docker image:
+2. Rebuild the Docker image:
 
-bash
-Edit
-Run
-Full Screen
-Copy code
+```bash
 docker build -t mediawiki:latest .
-Push the updated Docker image to the container registry.
 
-Restart the MediaWiki Deployment:
+```
+
+3. Push the updated Docker image to the container registry.
+
+4. Restart the MediaWiki Deployment:
+
+```bash
+
+kubectl rollout restart deployment mediawiki
+
+```
 
 bash
 Edit
