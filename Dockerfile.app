@@ -30,7 +30,7 @@ RUN sed -i 's|DocumentRoot "/var/www"|DocumentRoot "/var/www/mediawiki"|g' /etc/
 # Configure MediaWiki
 RUN echo "<?php $wgScriptPath = \"/\"; ?>" > /var/www/mediawiki/LocalSettings.php
 
-# COPY ./config/mediawiki /var/www/mediawiki
+COPY ./config/mediawiki /var/www/mediawiki
 
 # Firewall configuration
 RUN firewall-cmd --permanent --zone=public --add-service=http && \
