@@ -34,11 +34,11 @@ kubectl apply -f service.yml
 The following configuration files are included in this project:
 
 1. Dockerfile: The Dockerfile used to build the MediaWiki Docker image.
-2. mediawiki-pv.yaml: The PersistentVolume configuration for storing MediaWiki data.
-3. mediawiki-pvc.yaml: The PersistentVolumeClaim configuration for requesting storage for MediaWiki.
-4. mediawiki-storageclass.yaml: The StorageClass configuration for using local storage.
-5. mediawiki-deployment.yaml: The Deployment configuration for running the MediaWiki application.
-6. mediawiki-service.yaml: The Service configuration for exposing the MediaWiki application.
+2. pv.yml: The PersistentVolume configuration for storing MediaWiki data.
+3. pvc.yml: The PersistentVolumeClaim configuration for requesting storage for MediaWiki.
+4. storageclass.yml: The StorageClass configuration for using local storage.
+5. deployment.yml: The Deployment configuration for running the MediaWiki application.
+6. service.yml: The Service configuration for exposing the MediaWiki application.
 ## Updating MediaWiki
 
 To update MediaWiki, follow these steps:
