@@ -30,7 +30,6 @@ RUN sed -i 's|DocumentRoot "/var/www"|DocumentRoot "/var/www/mediawiki"|g' /etc/
 # Configure MediaWiki
 RUN echo "<?php $wgScriptPath = \"/\"; ?>" > /var/www/mediawiki/LocalSettings.php
 
-# Copy custom configuration files, if needed
 # COPY ./config/mediawiki /var/www/mediawiki
 
 # Firewall configuration
@@ -38,7 +37,7 @@ RUN firewall-cmd --permanent --zone=public --add-service=http && \
     firewall-cmd --permanent --zone=public --add-service=https && \
     systemctl restart firewalld
 
-# Security (selinux) configuration
+# Security configuration
 RUN setenforce 0
 
 # Expose ports
