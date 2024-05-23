@@ -61,10 +61,3 @@ docker build -t mediawiki:latest .
 kubectl rollout restart deployment mediawiki
 
 ```
-
-bash
-Edit
-Run
-Full Screen
-Copy code
-kubectl rollout restart deployment mediawiki
