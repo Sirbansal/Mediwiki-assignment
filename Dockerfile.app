@@ -38,7 +38,7 @@ RUN firewall-cmd --permanent --zone=public --add-service=http && \
     systemctl restart firewalld
 
 # Security configuration
-RUN setenforce 0
+RUN getenforce 0
 
 # Expose ports
 EXPOSE 80 443
